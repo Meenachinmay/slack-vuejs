@@ -31,6 +31,7 @@
 <script>
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
 export default {
     name: 'login',
     data(){
@@ -38,6 +39,7 @@ export default {
             errors: [],
             isLoading:false,
             hasErrors: false,
+            usersRef: null
         }
     },
     methods: {
@@ -47,6 +49,8 @@ export default {
             firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
             .then((response) => {
                 this.isLoading = false;
+                this.usersRef = firebase.database().ref('users');
+                this.saveUserToUsersRef(response.user);
                 // dispatch the action
                 this.$store.dispatch('setUser', response.user);
 
@@ -57,6 +61,12 @@ export default {
                 this.isLoading = false;
                 this.errors.push(error.message);
                 this.flashErrors();
+            });
+        },
+        saveUserToUsersRef(user){
+            return this.usersRef.child(user.uid).set({
+                name: user.displayName,
+                avatar: user.photoURL,
             });
         },
         flashErrors(){
