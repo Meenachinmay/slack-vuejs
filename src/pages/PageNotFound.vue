@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .custom-text-size-large{
     font-size: 10rem;
 }
