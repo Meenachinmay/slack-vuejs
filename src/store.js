@@ -6,15 +6,23 @@ Vue.use(Vuex);
 //state
 
 const state = {
-    currentUser: 'meenachinmay'
+    currentUser: null
 }
 
 // mutations
 
-const mutations = {}
+const mutations = {
+    SET_USER(state, user){
+        state.currentUser = user;
+    }
+}
 
 // actoins
-const actions = {}
+const actions = {
+    setUser(state, user){
+        state.commit('SET_USER', user);
+    }
+}
 
 // getters
 const getters = {
