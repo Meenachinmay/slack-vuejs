@@ -3,7 +3,6 @@ import App from './App.vue'
 import router from './router'
 Vue.config.productionTip = false
 import firebase from 'firebase/app';
-import 'firebase/auth';
 import store from './store'
 
 // Your web app's Firebase configuration
@@ -20,9 +19,16 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// perserve the state of logged in users, by saving the state of logged in user
+const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+  store.dispatch('setUser', user);
 
-new Vue({
-  render: h => h(App),
-  router,
-  store,
-}).$mount('#app')
+  new Vue({
+    render: h => h(App),
+    router,
+    store,
+  }).$mount('#app');
+
+  unsubscribe();
+});
+
