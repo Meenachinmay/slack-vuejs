@@ -55,6 +55,15 @@ import SweetalertIcon from 'vue-sweetalert-icons';
             return this.errors.length > 0;
         },
     },
+    created(){
+        // get all the names from database
+        this.channelsRef.on('child_added', snapshot => {
+            this.channels.push(snapshot.val());
+        })
+    },
+    beforeDestroy(){
+      this.channelsRef.off();
+    },
     methods: {
       close() {
         this.errors = [];
@@ -62,15 +71,9 @@ import SweetalertIcon from 'vue-sweetalert-icons';
         this.$emit('close');
       },
       add_new_channel(){
-          // get all the names from database
-          this.channelsRef.on('child_added', snapshot => {
-              this.channels.push(snapshot.val());
-          })
           // loop through names
           this.channels.forEach(item => {
             if (item.name == this.new_channel){
-              this.channels = [];
-              this.channelsRef.off();
               this.hasDuplicateEntry = true;
             }
           });
