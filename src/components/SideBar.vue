@@ -1,6 +1,6 @@
 <template>
     <div class="block w-full bg-white max-w-xs p-3 overflow-y-auto border-r">
-        <div class="bg-white rounded flex items-center justify-between p-2 border-b border-gray-300">
+        <div class="bg-white rounded flex items-center justify-between p-2 mb-3 border-b">
             <div>
                 <span class="block font-semibold text-gray-800 text-lg tracking-wide">
                     {{ currentUser.displayName }}
@@ -30,6 +30,12 @@
                 </svg>
             </div>
         </div>
+        <div>
+            <p v-for="channel in channels" :key="channel.id" class="hover:bg-gray-100 hover:font-semibold p-2 ml-2 
+            text-sm uppercase text-gray-800 font-medium">
+                {{ channel.name }}
+            </p>
+        </div>
         <add-channel v-show="isAddChannelVisible" @close="closeModal"></add-channel>
     </div>
 </template>
@@ -37,7 +43,7 @@
 <script>
 import {mapGetters} from 'vuex';
 import AddChannel from '../components/AddChannel';
-
+import firebase from 'firebase/app';
 export default {
     name: 'sidebar',
     components: {AddChannel},
@@ -48,6 +54,8 @@ export default {
         return{
             user_online: false,
             isAddChannelVisible: false,
+            channels: [],
+            channelsref: firebase.database().ref('channels'),
         }
     },
     methods: {
@@ -56,7 +64,21 @@ export default {
       },
       closeModal() {
         this.isAddChannelVisible = false;
+      },
+      addListeners(){
+          this.channelsref.on('child_added', snapshot => {
+              this.channels.push(snapshot.val());
+          })
+      },
+      detachListeners(){
+          this.channelsref.off();
       }
     },
+    mounted(){
+        this.addListeners();
+    },
+    beforeDestroy(){
+        this.detachListeners();
+    }
 }
 </script>
