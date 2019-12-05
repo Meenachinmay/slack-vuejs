@@ -3,11 +3,11 @@
         <!-- header goes from here -->
         <header-bar></header-bar>
         <!-- main area goes from here -->
-        <main class="flex h-screen overflow-hidden">
+        <main class="custom flex overflow-hidden">
             <!-- sidebar goes from here -->
             <side-bar></side-bar>
             <!-- second part of main area goes from here -->
-            <div class="block flex-1 flex bg-green-500 p-3">
+            <div class="block flex-1 flex bg-green-500 p-3 overflow-y-auto">
                 chats
             </div>
         </main>
@@ -27,4 +27,7 @@ export default {
 </script>
 
 <style scoped>
+.custom{
+    height: 92vh;
+}
 </style>

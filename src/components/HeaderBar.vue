@@ -12,12 +12,12 @@
                 <path style="fill:#665040;" d="M272.5,98.295v18.75H131.15c-14.05,0-25.44,11.39-25.44,25.44v77.81H89.15l-2.19,2.28v-98.84
                     c0-14.05,11.39-25.44,25.44-25.44H272.5z"/>
                 </svg>
-                <span class="text-xl tracking-wide text-gray-800 font-semibold">
+                <span class="text-xl tracking-wide text-gray-800">
                     Chats
                 </span>
             </div>
             <div class="flex">
-                <div class="block px-5 py-1 bg-gray-100 hover:bg-gray-200 rounded-lg cursor-pointer">
+                <div class="block px-5 py-1 border border-gray-300 hover:border-gray-500 rounded cursor-pointer mr-2">
                     <svg class="w-6 h-6" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 53 53" style="enable-background:new 0 0 53 53;" xml:space="preserve">
                     <path style="fill:#E7ECED;" d="M18.613,41.552l-7.907,4.313c-0.464,0.253-0.881,0.564-1.269,0.903C14.047,50.655,19.998,53,26.5,53
@@ -37,7 +37,7 @@
                     </svg>
                 </div>
                 <!-- logout SVG icon -->
-                <div @click="logout" class="block px-5 py-1 antialiased bg-gray-100 rounded-lg hover:bg-gray-200 cursor-pointer">
+                <div @click="logout" class="block px-5 py-1 antialiased border border-gray-300 rounded hover:border-gray-500 cursor-pointer">
                     <svg class="w-6 h-6" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                         x="0px" y="0px"
                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">

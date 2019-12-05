@@ -3,13 +3,13 @@
     <div class="modal-backdrop" @keyup.esc="close">
       <div class="flex-col flex bg-white text-gray-800 text-sm rounded-lg p-6 w-full max-w-md">
         <header class="flex items-center justify-center p-3">
-          <p class="text-lg font-semibold">
+          <p class="text-lg">
               Add a new Channel
           </p>
         </header>
         <form>
             <input v-model="new_channel" type="text" class="border border-gray-300 p-2 rounded w-full 
-            focus:outline-none hover:border-gray-500 text-lg" 
+            focus:outline-none hover:border-gray-500 text-md" 
             placeholder="Enter channel name...">
             <ul v-if="hasErrors">
                 <li class="text-red-800 text-xs font-semibold" v-for="error in errors" :key="error.id">{{ error }}</li>
@@ -19,10 +19,10 @@
             <sweetalert-icon v-if="addingChannelhasErrors" icon="error"></sweetalert-icon>
         </form>
         <footer class="flex items-center justify-between mt-12">
-            <button @click="add_new_channel" class="block p-2 text-sm rounded bg-blue-400 font-semibold text-white hover:bg-blue-600">
+            <button @click="add_new_channel" class="block p-2 text-sm rounded text-gray-800 border border-gray-300 hover:border-gray-500">
                 Add new Channel
             </button>
-            <button @click="close" class="block p-2 text-sm rounded bg-red-400 font-semibold text-white hover:bg-red-600">
+            <button @click="close" class="block p-2 text-sm rounded text-gray-800 border border-gray-300 hover:border-gray-500">
                 Cancel
             </button>
 

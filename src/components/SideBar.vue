@@ -2,7 +2,7 @@
     <div class="block w-full bg-white max-w-xs p-3 overflow-y-auto border-r">
         <div class="bg-white rounded flex items-center justify-between p-2 mb-3 border-b">
             <div>
-                <span class="block font-semibold text-gray-800 text-lg tracking-wide">
+                <span class="block text-gray-800 text-lg tracking-wide leading-normal">
                     {{ currentUser.displayName }}
                 </span>
                 <p v-if="user_online" class="text-xs font-semibold text-gray-800">
@@ -15,7 +15,7 @@
         </div>
         <!-- channels panel starts -->
         <div class="flex items-center justify-between">
-            <h1 class="uppercase text-gray-600 tracking-wide font-semibold p-2 text-xs">
+            <h1 class="text-gray-600 tracking-wide p-2 text-md">
                 Channels
             </h1>
             <div @click="showModal" class="block p-2 cursor-pointer">
@@ -31,11 +31,11 @@
             </div>
         </div>
         <div>
-            <p v-for="channel in channels" :key="channel.id" class="hover:bg-gray-100 hover:font-semibold p-2 ml-2 
-            text-sm uppercase text-gray-800 font-medium">
+            <p v-for="channel in channels" :key="channel.id" class="hover:bg-gray-100 hover:text-gray-800 p-2 ml-2 
+            text-sm text-gray-600 leading-normal tracking-wide">
                 {{ channel.name }}
             </p>
-        </div>
+      </div>
         <add-channel v-show="isAddChannelVisible" @close="closeModal"></add-channel>
     </div>
 </template>
@@ -79,6 +79,6 @@ export default {
     },
     beforeDestroy(){
         this.detachListeners();
-    }
+    },
 }
 </script>
