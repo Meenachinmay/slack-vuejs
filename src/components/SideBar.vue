@@ -1,5 +1,5 @@
 <template>
-    <div class="block w-full bg-white max-w-xs p-3 overflow-y-auto border-r">
+    <div class="block w-full bg-white max-w-xs p-3 overflow-y-auto border-r example">
         <div class="bg-white rounded flex items-center justify-between p-2 mb-3 border-b">
             <div>
                 <span class="block text-gray-800 text-lg tracking-wide leading-normal">
@@ -31,8 +31,8 @@
             </div>
         </div>
         <div>
-            <p v-for="channel in channels" :key="channel.id" class="hover:bg-gray-100 hover:text-gray-800 p-2 ml-2 
-            text-sm text-gray-600 leading-normal tracking-wide">
+            <p v-for="channel in channels" :key="channel.id" class="hover:bg-gray-100 p-2 ml-2 
+            text-md text-gray-600 leading-normal tracking-wide">
                 {{ channel.name }}
             </p>
       </div>
@@ -82,3 +82,12 @@ export default {
     },
 }
 </script>
+
+
+<style scoped>
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+    display: none;
+}
+</style>

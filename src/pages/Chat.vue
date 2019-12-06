@@ -7,8 +7,8 @@
             <!-- sidebar goes from here -->
             <side-bar></side-bar>
             <!-- second part of main area goes from here -->
-            <div class="block flex-1 flex bg-green-500 p-3 overflow-y-auto">
-                chats
+            <div class="flex-1 text-xl text-white flex bg-green-500 p-3 overflow-y-auto">
+               chats
             </div>
         </main>
     </div>
